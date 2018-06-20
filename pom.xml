@@ -64,7 +64,7 @@
         <profile>
             <id>dev-h2</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <jdbc.driver>org.h2.Driver</jdbc.driver>
@@ -86,14 +86,14 @@
         <profile>
             <id>dev-mysql</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-                <jdbc.url>jdbc:mysql://localhost:3306/sirh-db</jdbc.url>
-                <jdbc.user>sirh-db</jdbc.user>
-                <jdbc.pass>sirh-db</jdbc.pass>
-                <jpa.hibernate.ddl>create-drop</jpa.hibernate.ddl>
+                <jdbc.url>jdbc:mysql://localhost/gestion_des_absences</jdbc.url>
+                <jdbc.user>root</jdbc.user>
+                <jdbc.pass></jdbc.pass>
+                <!--<jpa.hibernate.ddl>create</jpa.hibernate.ddl>-->
                 <jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
                 <jdbc.connections.max.active>5</jdbc.connections.max.active>
             </properties>
@@ -105,26 +105,26 @@
                 </dependency>
             </dependencies>
         </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-                <jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADDON_DB}</jdbc.url>
-                <jdbc.user>${env.MYSQL_ADDON_USER}</jdbc.user>
-                <jdbc.pass>${env.MYSQL_ADDON_PASSWORD}</jdbc.pass>
-                <jpa.hibernate.ddl>${env.HIBERNATE_DDL}</jpa.hibernate.ddl>
-                <jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
-                <jdbc.connections.max.active>2</jdbc.connections.max.active>
-                <app.version>${env.COMMIT_ID}</app.version>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>mysql</groupId>
-                    <artifactId>mysql-connector-java</artifactId>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
-        </profile>
+        <!-- <profile>
+             <id>prod</id>
+             <properties>
+                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+                 <jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADDON_DB}</jdbc.url>
+                 <jdbc.user>${env.MYSQL_ADDON_USER}</jdbc.user>
+                 <jdbc.pass>${env.MYSQL_ADDON_PASSWORD}</jdbc.pass>
+                 <jpa.hibernate.ddl>${env.HIBERNATE_DDL}</jpa.hibernate.ddl>
+                 <jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
+                 <jdbc.connections.max.active>2</jdbc.connections.max.active>
+                 <app.version>${env.COMMIT_ID}</app.version>
+             </properties>
+             <dependencies>
+                 <dependency>
+                     <groupId>mysql</groupId>
+                     <artifactId>mysql-connector-java</artifactId>
+                     <scope>runtime</scope>
+                 </dependency>
+             </dependencies>
+         </profile>-->
 
     </profiles>
 
