@@ -31,16 +31,28 @@ CREATE TABLE `Absence` (
 )
   ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `ferie_rtt`;
-CREATE TABLE `ferie_rtt` (
+DROP TABLE IF EXISTS `rtt`;
+
+CREATE TABLE `gestion_des_absences`.`rtt` (
   `id`          INT                             NOT NULL AUTO_INCREMENT,
   `date`        DATE                            NOT NULL,
   `commentaire` TEXT                            NOT NULL,
   `type`        ENUM ('RTT employeur', 'Férié') NOT NULL,
-  `statut`      ENUM ('Initiale', 'Validée')    NULL,
+  `statut`      ENUM ('Initiale', 'Validée')    NOT NULL,
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `ferie`;
+CREATE TABLE `gestion_des_absences`.`ferie` (
+  `id`          INT                             NOT NULL AUTO_INCREMENT,
+  `date`        DATE                            NOT NULL,
+  `commentaire` TEXT                            NOT NULL,
+  `type`        ENUM ('RTT employeur', 'Férié') NOT NULL,
+  PRIMARY KEY (`id`)
+)
+  ENGINE = InnoDB;
+
 
 DROP TABLE IF EXISTS `version`;
 CREATE TABLE `version` (

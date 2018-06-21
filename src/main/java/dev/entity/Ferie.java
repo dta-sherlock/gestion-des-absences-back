@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class FerieRtt {
+public class Ferie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,6 @@ public class FerieRtt {
     private java.sql.Date date;
     private String commentaire;
     private String type;
-    private String statut;
 
 
     public int getId() {
@@ -50,15 +49,6 @@ public class FerieRtt {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-
-    public String getStatut() {
-        return statut;
-    }
-
-    public void setStatut(String statut) {
-        this.statut = statut;
     }
 
 }

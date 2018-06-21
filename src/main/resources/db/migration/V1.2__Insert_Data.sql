@@ -9,6 +9,8 @@ INSERT INTO `absence` (`id`, `date_debut`, `date_fin`, `motif`, `type`, `statut`
   (NULL, '2018-06-20', '2018-06-22', 'vacance', 'RTT', 'En_Attente_Validation', '1'),
   (NULL, '2018-06-25', '2018-06-29', 'malade', 'congé sans solde', 'Rejetée', '2');
 
-INSERT INTO `ferie_rtt` (`id`, `date`, `commentaire`, `type`, `statut`) VALUES
-  (NULL, '2018-06-21', 'Match de l\'équipe de France pour la coupe du monde.', 'RTT employeur', 'Validée'),
-  (NULL, '2018-07-14', 'Fête nationale.', 'Férié', NULL);
+INSERT INTO `rtt` (`id`, `date`, `commentaire`, `type`, `statut`) VALUES
+  (NULL, '2018/06/21', 'Match de l\'équipe de France pour la coupe du monde.', 'RTT employeur', 'Validée');
+
+INSERT INTO `ferie` (`id`, `date`, `commentaire`, `type`) VALUES
+  (NULL, '2018/07/14', 'Fête nationale.', 'Férié');
