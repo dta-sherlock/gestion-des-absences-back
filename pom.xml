@@ -57,6 +57,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.1.3</version>
+                <configuration>
+                    <url>${jdbc.url}</url>
+                    <user>${jdbc.user}</user>
+                    <password>${jdbc.pass}</password>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>deploy-bdd</id>
+                        <goals>
+                            <goal>migrate</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -90,9 +109,9 @@
             </activation>
             <properties>
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-                <jdbc.url>jdbc:mysql://localhost:3306/sirh-db</jdbc.url>
-                <jdbc.user>sirh-db</jdbc.user>
-                <jdbc.pass>sirh-db</jdbc.pass>
+                <jdbc.url>jdbc:mysql://localhost/gestion_des_absences</jdbc.url>
+                <jdbc.user>root</jdbc.user>
+                <jdbc.pass></jdbc.pass>
                 <jpa.hibernate.ddl>create-drop</jpa.hibernate.ddl>
                 <jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
                 <jdbc.connections.max.active>5</jdbc.connections.max.active>
@@ -107,6 +126,9 @@
         </profile>
         <profile>
             <id>prod</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
             <properties>
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
                 <jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADDON_DB}</jdbc.url>
