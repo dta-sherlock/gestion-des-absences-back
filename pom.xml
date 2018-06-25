@@ -66,15 +66,6 @@
                     <user>${jdbc.user}</user>
                     <password>${jdbc.pass}</password>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>deploy-bdd</id>
-                        <goals>
-                            <goal>migrate</goal>
-                        </goals>
-                        <phase>deploy</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://dta-sherlock.github.io/gestion-des-absences-front")
 @RequestMapping("/api/absences")
 public class ApiAbscenceController {
 
