@@ -5,10 +5,7 @@ pipeline {
         GIT_CREDENTIAL_ID = '498f56ad-08cc-4ce4-a8dc-d21027509ca5'
         DB_MYSQL_CREDS = credentials('prod_db_gestion-abscences')
         MYSQL_ADDON_DB = 'bevv85yvl'
-        MYSQL_ADDON_HOST = '3306'
-        MYSQL_ADDON_USER = $DB_MYSQL_CREDS_USR
-        MYSQL_ADDON_PASSWORD = $DB_MYSQL_CREDS_PSW
-        
+        MYSQL_ADDON_HOST = '3306'      
     }
     stages {
         stage('build') {
@@ -31,7 +28,9 @@ pipeline {
                 branch 'master'
             }
             steps {
-               mvn flyway:migrate -P prod
+               withEnv(["MYSQL_ADDON_USER=${DB_MYSQL_CREDS_USR}","MYSQL_ADDON_PASSWORD=${DB_MYSQL_CREDS_PSW}"]) {
+                    mvnw flyway:migrate -P prod
+               }
                sshagent(["${GIT_CREDENTIAL_ID}"]) {
                   sh "git checkout ${GIT_BRANCH}"
                   sh "git pull"
