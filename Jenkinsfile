@@ -5,7 +5,8 @@ pipeline {
         GIT_CREDENTIAL_ID = '498f56ad-08cc-4ce4-a8dc-d21027509ca5'
         DB_MYSQL_CREDS = credentials('prod_db_gestion-abscences')
         MYSQL_ADDON_DB = 'bevv85yvl'
-        MYSQL_ADDON_HOST = '3306'      
+        MYSQL_ADDON_HOST = 'bevv85yvl-mysql.services.clever-cloud.com'    
+        MYSQL_ADDON_PORT = '3306'    
     }
     stages {
         stage('build') {
