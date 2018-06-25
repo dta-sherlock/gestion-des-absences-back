@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://dta-sherlock.github.io/gestion-des-absences-front/")
 @RequestMapping("/api/utilisateurs")
 public class ApiUtilisateurController {
 
@@ -18,6 +19,12 @@ public class ApiUtilisateurController {
     public List<Utilisateur> utilisateurs() {
         return utiliRepo.findAll();
     }
+
+    @RequestMapping(method = RequestMethod.GET, path = "", params = { "email", "mdp" } )
+    public Utilisateur utilisateurByEmailAndMdp(@RequestParam("email") String email, @RequestParam("mdp") String mdp ) {
+        return utiliRepo.findByEmailAndMdp(email, mdp);
+    }
+
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
     public Utilisateur utilisateurById(@PathVariable Integer id) {
