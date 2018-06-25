@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `Utilisateur`;
-CREATE TABLE `Utilisateur`
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE `utilisateur`
 (
   `id`     INT                                           NOT NULL AUTO_INCREMENT,
   `nom`    VARCHAR(30)                                   NOT NULL,
@@ -10,14 +10,14 @@ CREATE TABLE `Utilisateur`
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB;
-ALTER TABLE `Utilisateur`
+ALTER TABLE `utilisateur`
   ADD `solde_conges` INT NULL
   AFTER `grade`,
   ADD `solde_rtt` INT NULL
   AFTER `solde_conges`;
 
-DROP TABLE IF EXISTS `Absence`;
-CREATE TABLE `Absence` (
+DROP TABLE IF EXISTS `absence`;
+CREATE TABLE `absence` (
   `id`             INT                                                              NOT NULL AUTO_INCREMENT,
   `date_debut`     DATE                                                             NOT NULL,
   `date_fin`       DATE                                                             NOT NULL,

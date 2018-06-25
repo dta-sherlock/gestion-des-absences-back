@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://dta-sherlock.github.io/gestion-des-absences-front/")
+@CrossOrigin
 @RequestMapping("/api/rtt")
 public class ApiRttController {
 
