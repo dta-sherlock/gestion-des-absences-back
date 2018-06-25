@@ -10,7 +10,7 @@ CREATE TABLE `Utilisateur`
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB;
-ALTER TABLE `utilisateur`
+ALTER TABLE `Utilisateur`
   ADD `solde_conges` INT NULL
   AFTER `grade`,
   ADD `solde_rtt` INT NULL
@@ -33,7 +33,7 @@ CREATE TABLE `Absence` (
 
 DROP TABLE IF EXISTS `rtt`;
 
-CREATE TABLE `gestion_des_absences`.`rtt` (
+CREATE TABLE `rtt` (
   `id`          INT                             NOT NULL AUTO_INCREMENT,
   `date`        DATE                            NOT NULL,
   `commentaire` TEXT                            NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `gestion_des_absences`.`rtt` (
   ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `ferie`;
-CREATE TABLE `gestion_des_absences`.`ferie` (
+CREATE TABLE `ferie` (
   `id`          INT                             NOT NULL AUTO_INCREMENT,
   `date`        DATE                            NOT NULL,
   `commentaire` TEXT                            NOT NULL,
