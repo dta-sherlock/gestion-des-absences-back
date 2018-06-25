@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://absences-back.cleverapps.io")
+@CrossOrigin(origins = "https://dta-sherlock.github.io/gestion-des-absences-front")
 @RequestMapping("/api/ferie")
 public class ApiFerieController {
 
