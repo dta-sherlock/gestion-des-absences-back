@@ -5,7 +5,7 @@ CREATE TABLE `Utilisateur`
   `nom`    VARCHAR(30)                                   NOT NULL,
   `prenom` VARCHAR(30)                                   NOT NULL,
   `email`  VARCHAR(30)                                   NOT NULL,
-  `mdp`    VARCHAR(30)                                   NOT NULL,
+  `mdp`    VARCHAR(80)                                   NOT NULL,
   `grade`  ENUM ('Administrateur', 'Manager', 'Employé') NOT NULL,
   PRIMARY KEY (`id`)
 )

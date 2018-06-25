@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://absences-back.cleverapps.io")
 @RequestMapping("/api/ferie")
 public class ApiFerieController {
 

@@ -70,6 +70,7 @@
                     <execution>
                         <id>deploy-bdd</id>
                         <goals>
+                            <goal>clean</goal>
                             <goal>migrate</goal>
                         </goals>
                         <phase>deploy</phase>
