@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                withEnv(["MYSQL_ADDON_USER=${DB_MYSQL_CREDS_USR}","MYSQL_ADDON_PASSWORD=${DB_MYSQL_CREDS_PSW}"]) {
-                    sh "mvnw flyway:migrate -P prod"
+                    sh "./mvnw flyway:migrate -P prod"
                }
                sshagent(["${GIT_CREDENTIAL_ID}"]) {
                   sh "git checkout ${GIT_BRANCH}"
