@@ -20,6 +20,11 @@ public class ApiRttController {
         return rttRepo.findAllByYearsDate(annee);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/annees" )
+    public List<Integer> getYears() {
+        return rttRepo.findAllYears();
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Rtt> Rtts() {
         return rttRepo.findAll();
