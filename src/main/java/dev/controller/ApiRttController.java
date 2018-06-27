@@ -15,6 +15,11 @@ public class ApiRttController {
     @Autowired
     private RttRepository rttRepo;
 
+    @RequestMapping(method = RequestMethod.GET, path = "", params = { "annee"} )
+    public List<Rtt> RttsByDateYear(@RequestParam("annee") int annee) {
+        return rttRepo.findAllByYearsDate(annee);
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Rtt> Rtts() {
         return rttRepo.findAll();

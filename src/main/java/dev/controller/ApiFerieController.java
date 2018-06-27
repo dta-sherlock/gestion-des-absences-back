@@ -15,6 +15,11 @@ public class ApiFerieController {
     @Autowired
     private FerieRepository FerieRepo;
 
+    @RequestMapping(method = RequestMethod.GET, path = "", params = { "annee"} )
+    public List<Ferie> FeriesByDateYear(@RequestParam("annee") int annee) {
+        return FerieRepo.findAllByYearsDate(annee);
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Ferie> Feries() {
         return FerieRepo.findAll();
