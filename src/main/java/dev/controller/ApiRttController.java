@@ -8,11 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/rtt")
 public class ApiRttController {
 
     @Autowired
     private RttRepository rttRepo;
+
+    @RequestMapping(method = RequestMethod.GET, path = "", params = { "annee"} )
+    public List<Rtt> RttsByDateYear(@RequestParam("annee") int annee) {
+        return rttRepo.findAllByYearsDate(annee);
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Rtt> Rtts() {
