@@ -20,6 +20,11 @@ public class ApiFerieController {
         return FerieRepo.findAllByYearsDate(annee);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/annees" )
+    public List<Integer> getYears() {
+        return FerieRepo.findAllYears();
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Ferie> Feries() {
         return FerieRepo.findAll();
